@@ -1,3 +1,7 @@
+import java.util.Queue;
+
+import materia.Queques.Queque;
+import materia.Queques.QuequeGeneric;
 import materia.Stacks.Stack;
 import materia.Stacks.StackGeneric;
 import models.Pantalla;
@@ -5,7 +9,9 @@ import models.Pantalla;
 public class App {
     public static void main(String[] args) throws Exception {
         //runStack();
-        runStackGeneric();
+        //runStackGeneric();
+        //runQueue();
+        runQuequeGeneric();
     }
 
     public static void runStack(){
@@ -47,4 +53,39 @@ public class App {
         System.out.println("Estoy en " + router.peek().getRuta());
         router.printStack();
     }
+
+    public static void runQueue(){
+        Queque colas = new Queque();
+        colas.enqueue(10);
+        colas.enqueue(20);
+        colas.enqueue(30);
+        colas.enqueue(40);
+
+        System.out.println(colas.peek());
+        System.out.println(colas.dequeque());
+        System.out.println(colas.dequeque());
+        System.out.println(colas.peek());
+    }
+
+    public static void runQuequeGeneric(){
+        QuequeGeneric<Integer> cola = new QuequeGeneric<>();
+
+        
+        cola.enqueue(10);
+        cola.enqueue(20);
+        cola.enqueue(30);
+
+      
+        System.out.println(cola.peek().getValue());
+        System.out.println(cola.deQueque().getNext().getValue());
+        System.out.println(cola.peek().getValue());
+
+        cola.enqueue(40);
+        
+        System.out.println("\nTamaño : "+cola.getSize());
+        cola.printQueuqe();
+        
+        
+    }
 }
+

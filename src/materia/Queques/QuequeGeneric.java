@@ -3,20 +3,19 @@ package materia.Queques;
 import java.util.NoSuchElementException;
 
 import materia.models.Node;
+import materia.models.NodeGeneric;
 
+public class QuequeGeneric<T> {
+    private NodeGeneric<T> front;
+    private NodeGeneric<T> rear;
 
-public class Queque {
-    private Node front; //nodo al frente de la cola
-    private Node rear; //nodo al final de la cola
-
-    //creamos una cola con nodos vacios
-    public Queque() {
+    public QuequeGeneric() {
         this.front = null;
         this.rear = null;
     }
 
-    public void enqueue(int value){
-        Node newNode = new Node(value);
+    public void enqueue(T value){
+        NodeGeneric<T> newNode = new NodeGeneric<>(value);
         if(isEmpty()) {
             front = newNode;
             rear = newNode;
@@ -26,12 +25,11 @@ public class Queque {
         }
     }
 
-    //desencolar
-    public Node dequeque(){
+    public NodeGeneric<T> dequeque(){
         if(isEmpty()){
             throw new NoSuchElementException();
         }
-        Node node = front;
+        NodeGeneric<T> node = front;
         front = front.getNext();
         if(front == null){
             rear = null;
@@ -39,7 +37,7 @@ public class Queque {
         return node;
     }
 
-    public Node peek(){
+    public NodeGeneric<T> peek(){
         if(isEmpty()){
             throw new NoSuchElementException();
         }
@@ -52,7 +50,7 @@ public class Queque {
 
     public int getSize(){
         int contador = 0;
-        Node rear = front;
+        NodeGeneric<T> rear = front;
         while(rear != null){
             System.out.print(rear.getValue() + " ");
             contador++;
@@ -62,16 +60,24 @@ public class Queque {
     }
 
     public void printQueuqe(){
-        Node rear = front;
+        NodeGeneric<T> rear = front;
         while(rear != null){
             System.out.print(rear.getValue() + " ");
             rear = rear.getNext();
         }
     }
 
+    public NodeGeneric<T> deQueque() {
+        if(isEmpty()){
+            throw new IllegalStateException("La pila esta vacia.");
+        }
+        NodeGeneric<T> value = front;
+        front = front.getNext();
+        if(front == null){
+            rear = null;
+        }
+        return value;
 
-    
-
-
+    }
     
 }
