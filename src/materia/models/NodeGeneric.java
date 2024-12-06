@@ -1,14 +1,17 @@
 package materia.models;
 
-public class Node {
+public class NodeGeneric<T> {
 
-    private int value;
-    private Node next;
+    private T value;
+    private NodeGeneric<T> next;
 
-    public Node(int value) {
+
+    
+    public NodeGeneric(T value) {
         this.value = value;
         this.next = null;
     }
+
 
     public String toString() {
         return "Node{" +
@@ -16,20 +19,20 @@ public class Node {
                 '}';
     }
 
-    public int getValue() {
+    public T getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(T value) {
         this.value = value;
         this.next = null;
     }
 
-    public Node getNext() {
+    public NodeGeneric<T> getNext() {
         return next;
     }
 
-    public void setNext(Node next) {
+    public void setNext(NodeGeneric<T> next) {
         this.next = next;
     }
 
