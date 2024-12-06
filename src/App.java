@@ -41,7 +41,7 @@ public class App {
         System.out.println("Regreso a "+(router.popNode().getNext().getValue()).getRuta());
         System.out.println("Estoy en " + router.peek().getRuta());
 
-        router.push(new Pantalla(1,"Settings Page","/home/menu/users/settings"));
+        router.push(new Pantalla(1,"Settings Page","/home/menu/settings"));
 
         System.out.println("\nPantallas = "+router.getSize());
         System.out.println("Estoy en " + router.peek().getRuta());
