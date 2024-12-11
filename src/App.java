@@ -1,5 +1,6 @@
 import java.util.Queue;
 
+import controllers.MenuController;
 import materia.Queques.Queque;
 import materia.Queques.QuequeGeneric;
 import materia.Stacks.Stack;
@@ -11,7 +12,8 @@ public class App {
         //runStack();
         //runStackGeneric();
         //runQueue();
-        runQuequeGeneric();
+        //runQuequeGeneric();
+        runContactManager();
     }
 
     public static void runStack(){
@@ -86,6 +88,11 @@ public class App {
         cola.printQueuqe();
         
         
+    }
+    private static void runContactManager(){
+        MenuController menuController = new MenuController();
+        menuController.showMenu();
+
     }
 }
 
