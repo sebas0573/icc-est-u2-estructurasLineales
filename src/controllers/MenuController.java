@@ -1,6 +1,8 @@
 package controllers;
 
 import View.ConsoleView;
+import materia.models.NodeGeneric;
+import models.Contact;
 
 public class MenuController {
 
@@ -14,7 +16,7 @@ public class MenuController {
         boolean exit = false;
         while (exit) {
             consoleView.displayMenu();
-            String option = consoleView.getInput(""); 
+            String option = consoleView.getInput(" "); 
             switch (option) {
                 case "1" :
                 addContact();
@@ -48,16 +50,22 @@ public class MenuController {
         }
     }
     private void deleteContact() {
-        // TODO Auto-generated method stub
-         throw new UnsupportedOperationException("Unimplemented method 'deleteContact'");
+       String name = consoleView.getInput("Enter a name to delete ");
+       contactManager.deleteContactByName(name);
+       consoleView.showMessage("Contact delete if it existed ");
     }
     private void printList() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printContatc'");
+        
     }
     private void findContact() {
-         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findContact'");
+       String name = consoleView.getInput("Enter a name to seach");
+       Contact<?, ?> contact = contactManager.findContactByName(name);
+       if (contact != null) {
+        consoleView.showMessage("Contact found " + contact);
+           
+       }else{
+        consoleView.showMessage("Contact not found 404");
+       }
     }
     private void addContact() {
         String name = consoleView.getInput("Enter name");

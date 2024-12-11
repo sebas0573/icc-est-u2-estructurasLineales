@@ -3,7 +3,8 @@ package materia.models;
 public class Node {
 
     private int value;
-    private Node next;
+    public Node next;
+    public Object contact;
 
     public Node(int value) {
         this.value = value;
